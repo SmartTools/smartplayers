@@ -3,5 +3,5 @@
  */
 public interface GameObject {
     void update();
-    void takeCommand(ManagedObject managedObject);
+    void takeCommand(MoveableObject moveableObject);
 }

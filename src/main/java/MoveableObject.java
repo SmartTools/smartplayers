@@ -1,11 +1,10 @@
 /**
  * An object that can move
  */
-public interface ManagedObject {
+public interface MoveableObject {
     void move();
     void rotateLeft();
     void rotateRight();
-    void fire();
     void stop();
     int getCommand();
 }
