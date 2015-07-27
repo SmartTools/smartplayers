@@ -7,5 +7,5 @@ import java.util.ArrayList;
  * ArrayList<MoveableObject> out лист обьектов которыми может управлять данный игрок
  */
 public interface Player {
-    void run(ArrayList<InformationObject> in,ArrayList<MoveableObject> out);
+    void run(ArrayList<InformationObject> radar,ArrayList<MoveableObject> their);
 }

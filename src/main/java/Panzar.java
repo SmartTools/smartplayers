@@ -2,7 +2,6 @@
  * Created by byzilio on 20.07.15.
  * В update выполняем команду
  */
-public interface GameObject {
+public interface Panzar {
     void update();
-    void takeCommand(MoveableObject moveableObject);
 }

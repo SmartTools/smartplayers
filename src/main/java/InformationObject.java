@@ -10,9 +10,7 @@ public interface InformationObject {
     int getVX();
     int getVY();
 
-    int getHealth();
-    int getFuel();
-    int getPlayer();
+    int size();
 
-    void setInformation(ArrayList<GameObject> gameObjects);
+    void setInformation(ArrayList<Panzar> gameObjects);
 }
