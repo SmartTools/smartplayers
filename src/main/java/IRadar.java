@@ -1,8 +1,10 @@
-import java.util.List;
+import java.util.Iterator;
 
 /**
  * Created by kkp on 03.08.15.
  */
+
+
 public interface IRadar {
-    List getTargets();
+    Iterator<ITarget> getTargets(); //возвращает цели на радаре
 }
