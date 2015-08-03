@@ -1,6 +1,6 @@
 /**
  * Created by kkp on 27.07.15.
- * Интерфейс команды , хранимой в объкте и выполняемой при вызову update GameField'ом
+ * Интерфейс команды , изменяющей состояние
  */
 public interface ICommand {
     ITarget action();

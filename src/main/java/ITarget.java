@@ -1,5 +1,6 @@
 /**
  * Created by byzilio on 20.07.15.
+ * интерфейс цели на радаре
  */
 public interface ITarget {
     int getX();    // Положение на карте
