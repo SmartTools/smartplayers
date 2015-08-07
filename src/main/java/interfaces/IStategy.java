@@ -1,3 +1,5 @@
+package interfaces;
+
 /**
  * Created by kkp on 03.08.15.
  * интерфейс стратегии, реазилуемый игроком

@@ -1,3 +1,5 @@
+package interfaces;
+
 /**
  * Created by byzilio on 20.07.15.
  * интерфейс цели на радаре
