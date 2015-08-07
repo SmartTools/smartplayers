@@ -2,7 +2,7 @@
  * Created by byzilio on 20.07.15.
  * Интерфейс управляемого игроком танка
  */
-public interface Panzer{
+public interface IPanzer{
     ITarget getTarget();
     IRemoteControl getControl();
 }
