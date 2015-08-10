@@ -1,16 +1,15 @@
 package interfaces;
 
+import java.awt.*;
+
 /**
  * Created by byzilio on 20.07.15.
  * интерфейс цели на радаре
  */
 public interface ITarget {
-    int getX();    // Положение на карте
-    int getY();
+    Point getLocation();    // Положение на карте
 
-    //Vector getVector(); // вектор напраления
-    int getVX();
-    int getVY();
+    Point getDirection();   // вектор напраления
 
     int getSpeed();  // Скорость объекта
 
