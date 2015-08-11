@@ -1,4 +1,7 @@
-package interfaces.player.acces;
+package interfaces.player.control;
+
+import interfaces.player.components.IPanzer;
+import interfaces.player.components.IRadar;
 
 import java.util.Iterator;
 
@@ -6,7 +9,7 @@ import java.util.Iterator;
  * Created by kkp on 03.08.15.
  * интерфейс состояния игрового поля , передаётся в IStrategy.step
  */
-public interface GameState {
+public interface IGameState {
     IRadar getRadar();
     Iterator<IPanzer> getControl();
 }

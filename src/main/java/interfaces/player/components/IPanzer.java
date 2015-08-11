@@ -1,4 +1,6 @@
-package interfaces.player.acces;
+package interfaces.player.components;
+
+import interfaces.player.control.IRemoteControl;
 
 /**
  * Created by byzilio on 20.07.15.

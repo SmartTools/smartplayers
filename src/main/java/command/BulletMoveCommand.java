@@ -4,18 +4,17 @@ import interfaces.logic.ICommand;
 import interfaces.player.components.ITarget;
 
 /**
- * Created by kkp on 07.08.15.
+ * Created by kkp on 11.08.15.
  */
-public class MoveCommand implements ICommand {
+public class BulletMoveCommand implements ICommand {
 
     ITarget obj;
 
-    public MoveCommand(ITarget obj) {
+    public BulletMoveCommand(ITarget obj) {
         this.obj = obj;
     }
 
     public ITarget action() {
-
-        return  null;
+        return null;
     }
 }

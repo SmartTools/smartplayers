@@ -1,6 +1,6 @@
 package interfaces.logic;
 
-import interfaces.player.acces.ITarget;
+import interfaces.player.components.ITarget;
 
 /**
  * Created by kkp on 27.07.15.

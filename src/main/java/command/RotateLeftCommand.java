@@ -1,7 +1,7 @@
 package command;
 
 import interfaces.logic.ICommand;
-import interfaces.player.acces.ITarget;
+import interfaces.player.components.ITarget;
 
 /**
  * Created by kkp on 07.08.15.

@@ -1,11 +1,11 @@
-package logic;
+package base;
 
 import java.util.Iterator;
 
 /**
  * Created by kkp on 10.08.15.
  */
-public class IGameObjectIteratorDecorator implements Iterator {
+public class GameObjectIteratorDecorator implements Iterator {
 
     public boolean hasNext() {
         return false;

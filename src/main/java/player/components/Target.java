@@ -1,6 +1,6 @@
-package player.acces;
+package player.components;
 
-import interfaces.player.acces.ITarget;
+import interfaces.player.components.ITarget;
 
 import java.awt.*;
 

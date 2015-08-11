@@ -1,4 +1,4 @@
-package interfaces.player.acces;
+package interfaces.player.components;
 
 import java.awt.*;
 
