@@ -1,4 +1,4 @@
-package interfaces;
+package interfaces.player.acces;
 
 /**
  * Created by byzilio on 20.07.15.

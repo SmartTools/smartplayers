@@ -1,4 +1,4 @@
-package interfaces;
+package interfaces.logic;
 
 /**
  * Created by kkp on 07.08.15.

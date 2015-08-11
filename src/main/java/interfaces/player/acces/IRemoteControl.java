@@ -1,4 +1,4 @@
-package interfaces;
+package interfaces.player.acces;
 
 /**
  *Интрефейс , создающий команды для изменения состояния

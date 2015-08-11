@@ -1,4 +1,4 @@
-package interfaces;
+package interfaces.player.acces;
 
 import java.util.Iterator;
 
@@ -8,5 +8,5 @@ import java.util.Iterator;
  */
 public interface GameState {
     IRadar getRadar();
-    Iterator<Panzer> getControl();
+    Iterator<IPanzer> getControl();
 }

@@ -1,4 +1,6 @@
-import interfaces.ITarget;
+package player.acces;
+
+import interfaces.player.acces.ITarget;
 
 import java.awt.*;
 

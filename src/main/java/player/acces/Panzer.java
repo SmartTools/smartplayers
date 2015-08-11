@@ -1,6 +1,9 @@
-import interfaces.IPanzer;
-import interfaces.IRemoteControl;
-import interfaces.ITarget;
+package player.acces;
+
+import interfaces.player.acces.IPanzer;
+import interfaces.player.acces.IRemoteControl;
+import interfaces.player.acces.ITarget;
+import logic.GameObject;
 
 /**
  * Created by kkp on 10.08.15.

@@ -1,7 +1,6 @@
-import interfaces.IGameObject;
+package logic;
 
 import java.util.Iterator;
-import java.util.List;
 
 /**
  * Created by kkp on 10.08.15.
