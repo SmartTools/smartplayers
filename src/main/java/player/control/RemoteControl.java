@@ -29,13 +29,13 @@ public class RemoteControl implements IRemoteControl, ICommand {
 
     public void rotateRight() {
         if(command == null) {
-            command = new RotateRightCommand();
+            command = new RotateRightCommand(this.target);
         }
     }
 
     public void fire() {
         if(command == null) {
-            command = new FireCommand();
+            command = new FireCommand(this.target);
         }
     }
 

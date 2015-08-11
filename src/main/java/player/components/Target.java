@@ -12,13 +12,13 @@ public class Target implements ITarget {
     Point location;
     Point direction;
     int speed;
-    int size;
+    Shape size;
     public static final int PanzerSize = 5;
     public static final int PanzerSpeed = 5;
     public static final int BulletSize = 1;
     public static final int BulletSpeed = 10;
 
-    public Target(Point direction, Point location, int size, int speed) {
+    public Target(Point direction, Point location, Shape size, int speed) {
         this.direction = direction;
         this.location = location;
         this.size = size;
@@ -37,7 +37,7 @@ public class Target implements ITarget {
         return speed;
     }
 
-    public int getSize() {
-        return size;
+    public Shape getSize() {
+        return this.size;
     }
 }

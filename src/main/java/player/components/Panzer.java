@@ -5,6 +5,8 @@ import interfaces.player.control.IRemoteControl;
 import interfaces.player.components.ITarget;
 import base.GameObject;
 
+import java.awt.*;
+
 /**
  * Created by kkp on 10.08.15.
  */

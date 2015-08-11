@@ -12,7 +12,7 @@ public class Bullet extends GameObject {
     ITarget target;
     ICommand command;
 
-    public Bullet(ITarget target) {
+    public Bullet(final ITarget target) {
         this.command = new BulletMoveCommand(target);
         this.target = target;
     }

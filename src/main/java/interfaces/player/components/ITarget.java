@@ -13,6 +13,6 @@ public interface ITarget {
 
     int getSpeed();  // Скорость объекта
 
-    int getSize();  // Размер объекта
+    Shape getSize();  // Размер объекта
 
 }
