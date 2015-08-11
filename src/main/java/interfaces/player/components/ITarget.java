@@ -1,7 +1,5 @@
 package interfaces.player.components;
 
-import java.awt.*;
-
 /**
  * Created by byzilio on 20.07.15.
  * интерфейс цели на радаре

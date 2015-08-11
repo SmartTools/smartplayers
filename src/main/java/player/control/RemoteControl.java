@@ -12,7 +12,7 @@ import interfaces.player.components.ITarget;
  * Created by kkp on 07.08.15.
  */
 public class RemoteControl implements IRemoteControl, ICommand {
-    ICommand command;
+    ICommand command = null;
 
     ITarget target;
     public void move() {
