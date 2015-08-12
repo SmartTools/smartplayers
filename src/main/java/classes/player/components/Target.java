@@ -1,8 +1,9 @@
 package classes.player.components;
 
+import classes.player.components.geometry.Point;
+import classes.player.components.geometry.Shape;
 import interfaces.player.components.ITarget;
 
-import java.awt.*;
 
 /**
  * Created by kkp on 07.08.15.
@@ -12,16 +13,16 @@ public class Target implements ITarget {
     Point location;
     Point direction;
     int speed;
-    Shape size;
+    Shape shape;
     public static final int PanzerSize = 5;
     public static final int PanzerSpeed = 5;
     public static final int BulletSize = 1;
     public static final int BulletSpeed = 10;
 
-    public Target(Point direction, Point location, Shape size, int speed) {
+    public Target(final Point direction, final Point location, final Shape shape, int speed) {
         this.direction = direction;
         this.location = location;
-        this.size = size;
+        this.shape = shape;
         this.speed = speed;
     }
 
@@ -37,7 +38,7 @@ public class Target implements ITarget {
         return speed;
     }
 
-    public Shape getSize() {
-        return this.size;
+    public Shape getShape() {
+        return this.shape;
     }
 }

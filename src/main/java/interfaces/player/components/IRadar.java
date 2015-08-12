@@ -3,10 +3,8 @@ package interfaces.player.components;
 import java.util.Iterator;
 
 /**
- * Created by kkp on 03.08.15.
+ * Radar contains game targets.
  */
-
-
 public interface IRadar {
-    Iterator<ITarget> getTargets(); //возвращает цели на радаре
+    Iterator<ITarget> getTargets();
 }

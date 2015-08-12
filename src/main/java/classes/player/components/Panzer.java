@@ -8,7 +8,8 @@ import classes.game.GameObject;
 /**
  * Panzer's class
  */
-public class Panzer extends GameObject implements IPanzer{
+public class Panzer extends GameObject implements IPanzer {
+
     IRemoteControl control;
     ITarget target;
 

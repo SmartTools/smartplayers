@@ -6,8 +6,7 @@ import interfaces.player.components.IRadar;
 import java.util.Iterator;
 
 /**
- * Created by kkp on 03.08.15.
- * интерфейс состояния игрового поля , передаётся в IStrategy.step
+ * Game state. Reflects game's state in appropriate time.
  */
 public interface IGameState {
     IRadar getRadar();

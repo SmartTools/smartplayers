@@ -1,23 +1,41 @@
 package classes.player.components.geometry;
 
 /**
- * Created by kkp on 11.08.15.
+ * Rectangle
  */
 public class Rectangle extends Shape {
-    Point angle;
-    Point displacement;
 
-    public Rectangle(Point angle, Point displacement) {
-        this.angle = angle;
-        this.displacement = displacement;
+    private Point leftTop;
+    private int height;
+    private int width;
+
+    public Rectangle(Point leftTop, int height, int width) {
+        this.leftTop = leftTop;
+        this.height = height;
+        this.width = width;
     }
 
-    public void setDisplacement(Point displacement) {
-        this.displacement = displacement;
+    public Point getLeftTop() {
+        return leftTop;
     }
 
-    public void setAngle(Point angle) {
-        this.angle = angle;
+    public void setLeftTop(final Point leftTop) {
+        this.leftTop = leftTop;
     }
 
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
 }

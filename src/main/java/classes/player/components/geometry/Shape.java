@@ -1,8 +1,6 @@
 package classes.player.components.geometry;
 
 /**
- * Created by kkp on 11.08.15.
+ * Abstract shape
  */
-public abstract class Shape {
-    
-}
+public abstract class Shape {}

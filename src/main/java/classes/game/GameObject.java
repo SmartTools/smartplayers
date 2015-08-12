@@ -11,6 +11,7 @@ public class GameObject implements IGameObject {
 
     Map<String, Object> components;
 
+    @Override
     public boolean has(final String key) {
         if (components.get(key) != null) {
             return true;
@@ -18,7 +19,9 @@ public class GameObject implements IGameObject {
         return false;
     }
 
+    @Override
     public Object getKey(final String key) {
         return components.get(key);
     }
+
 }

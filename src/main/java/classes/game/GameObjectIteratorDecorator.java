@@ -13,12 +13,13 @@ import java.util.function.Function;
 public class GameObjectIteratorDecorator<T> implements IGameObjectIteratorDecorator {
 
     private Iterator<IGameObject> objects;
+    private IGameObject current;
     private String key;
     private Function<IGameObject, T> transform;
 
     public GameObjectIteratorDecorator(final Iterator<IGameObject> objects, final String key) {
-        this.objects = objects;
         this.key = key;
+        this.objects = objects;
     }
 
     public GameObjectIteratorDecorator(final Iterator<IGameObject> objects, final String key, final Function<IGameObject, T> transform) {
@@ -31,30 +32,44 @@ public class GameObjectIteratorDecorator<T> implements IGameObjectIteratorDecora
         }
     }
 
-    /**
-     * Checks whether objects have appropriate GameObject
-     * @return true is it has, false otherwise
-     */
+    @Override
     public boolean hasNext() {
 
+        if (current != null) {
+            return true;
+        }
         while(objects.hasNext()) {
-            if (objects.next().has(key)) {
+            current = objects.next();
+            if (current.has(key)) {
                 return true;
             }
         }
-        return false;
+        current = null;
 
+        return false;
     }
 
+    @Override
     public T next() {
 
-        //TODO: check
-        while(objects.hasNext()) {
-            if (objects.next().has(key)) {
-                return (T)objects.next();
+        if (current != null) {
+            return this.retrieveCurrent();
+        } else {
+            while (objects.hasNext()) {
+                current = objects.next();
+                if (current.has(key)) {
+                    return this.retrieveCurrent();
+                }
             }
+            current = null;
         }
         throw new NoSuchElementException("No such element");
 
+    }
+
+    private T retrieveCurrent() {
+        T result = transform.apply(current);
+        current = null;
+        return result;
     }
 }

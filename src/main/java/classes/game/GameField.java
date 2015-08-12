@@ -1,10 +1,8 @@
 package classes.game;
 
-import interfaces.game.IGameField;
-import interfaces.game.IGameObject;
+import interfaces.game.*;
 import interfaces.player.IPlayer;
 import interfaces.player.components.ITarget;
-import interfaces.game.IGameState;
 import interfaces.player.control.IRemoteControl;
 import classes.player.components.Panzer;
 import classes.player.components.Radar;
@@ -19,7 +17,7 @@ public class GameField implements IGameField {
     Iterable<IPlayer> players;
     Iterator<IGameObject> objects;
 
-
+    @Override
     public void update() {
         for (IPlayer player : players) {
             IGameState gameState = new GameState(
@@ -37,6 +35,13 @@ public class GameField implements IGameField {
             );
 
             player.getStrategy().step(gameState);
+
+            GameObjectIteratorDecorator<ICommandSource> commands =
+                new GameObjectIteratorDecorator<ICommandSource>(objects, "command");
+
+            while (commands.hasNext()) {
+                commands.next().command().action();
+            }
         }
 
     }

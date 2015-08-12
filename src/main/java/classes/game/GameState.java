@@ -19,10 +19,12 @@ public class GameState implements IGameState {
         this.panzers = panzers;
     }
 
+    @Override
     public IRadar getRadar() {
         return radar;
     }
 
+    @Override
     public Iterator<IPanzer> getControl() {
         return panzers;
     }

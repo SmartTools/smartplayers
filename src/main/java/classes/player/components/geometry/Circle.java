@@ -1,18 +1,19 @@
 package classes.player.components.geometry;
 
 /**
- * Created by kkp on 11.08.15.
+ * Circle
  */
-public class Circle {
-    Point center;
-    int radius;
+public class Circle extends Shape {
 
-    public Circle(Point center, int radius) {
+    private Point center;
+    private int radius;
+
+    public Circle(final Point center, int radius) {
         this.center = center;
         this.radius = radius;
     }
 
-    public void setCenter(Point center) {
+    public void setCenter(final Point center) {
         this.center = center;
     }
 

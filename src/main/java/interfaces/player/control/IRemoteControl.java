@@ -3,7 +3,7 @@ package interfaces.player.control;
 /**
  *Интрефейс , создающий команды для изменения состояния
  */
-public interface IRemoteControl{
+public interface IRemoteControl {
     void move();
     void rotateLeft();
     void rotateRight();
