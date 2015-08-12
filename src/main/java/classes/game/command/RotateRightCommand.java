@@ -1,16 +1,16 @@
-package command;
+package classes.game.command;
 
-import interfaces.logic.ICommand;
+import interfaces.game.ICommand;
 import interfaces.player.components.ITarget;
 
 /**
  * Created by kkp on 11.08.15.
  */
-public class BulletMoveCommand implements ICommand {
+public class RotateRightCommand implements ICommand {
 
     ITarget obj;
 
-    public BulletMoveCommand(ITarget obj) {
+    public RotateRightCommand(ITarget obj) {
         this.obj = obj;
     }
 

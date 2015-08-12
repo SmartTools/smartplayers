@@ -1,6 +1,6 @@
-package command;
+package classes.game.command;
 
-import interfaces.logic.ICommand;
+import interfaces.game.ICommand;
 import interfaces.player.components.ITarget;
 
 /**

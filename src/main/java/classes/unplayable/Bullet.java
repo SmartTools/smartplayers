@@ -1,12 +1,12 @@
-package unplayable;
+package classes.unplayable;
 
-import command.BulletMoveCommand;
-import interfaces.logic.ICommand;
+import classes.game.command.BulletMoveCommand;
+import interfaces.game.ICommand;
 import interfaces.player.components.ITarget;
-import base.GameObject;
+import classes.game.GameObject;
 
 /**
- * Created by kkp on 10.08.15.
+ * Panzer's bullet class
  */
 public class Bullet extends GameObject {
     ITarget target;

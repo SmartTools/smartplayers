@@ -1,16 +1,16 @@
-package command;
+package classes.game.command;
 
-import interfaces.logic.ICommand;
+import interfaces.game.ICommand;
 import interfaces.player.components.ITarget;
 
 /**
  * Created by kkp on 11.08.15.
  */
-public class RotateRightCommand implements ICommand {
+public class FireCommand implements ICommand {
 
     ITarget obj;
 
-    public RotateRightCommand(ITarget obj) {
+    public FireCommand(ITarget obj) {
         this.obj = obj;
     }
 

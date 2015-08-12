@@ -1,4 +1,4 @@
-package interfaces.player.control;
+package interfaces.game;
 
 import interfaces.player.components.IPanzer;
 import interfaces.player.components.IRadar;

@@ -1,4 +1,4 @@
-package interfaces.logic;
+package interfaces.game;
 
 import interfaces.player.components.ITarget;
 

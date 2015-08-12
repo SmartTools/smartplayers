@@ -1,5 +1,8 @@
 package interfaces.player.components;
 
+import classes.player.components.geometry.Point;
+import classes.player.components.geometry.Shape;
+
 /**
  * Created by byzilio on 20.07.15.
  * интерфейс цели на радаре

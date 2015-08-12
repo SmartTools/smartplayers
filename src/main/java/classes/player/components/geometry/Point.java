@@ -1,4 +1,4 @@
-package interfaces.player.components;
+package classes.player.components.geometry;
 
 /**
  * Created by kkp on 11.08.15.

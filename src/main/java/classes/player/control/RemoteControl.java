@@ -1,20 +1,21 @@
-package player.control;
+package classes.player.control;
 
-import command.FireCommand;
-import command.MoveCommand;
-import command.RotateLeftCommand;
-import command.RotateRightCommand;
-import interfaces.logic.ICommand;
+import classes.game.command.FireCommand;
+import classes.game.command.MoveCommand;
+import classes.game.command.RotateLeftCommand;
+import classes.game.command.RotateRightCommand;
+import interfaces.game.ICommand;
 import interfaces.player.control.IRemoteControl;
 import interfaces.player.components.ITarget;
 
 /**
- * Created by kkp on 07.08.15.
+ * RemoteControl class. Uses for player's interface and for making game steps in IGameField implementation.
  */
 public class RemoteControl implements IRemoteControl, ICommand {
-    ICommand command = null;
 
+    ICommand command;
     ITarget target;
+
     public void move() {
         if(command == null){
             command = new MoveCommand(this.target);

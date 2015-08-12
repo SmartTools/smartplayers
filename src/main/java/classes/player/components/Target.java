@@ -1,4 +1,4 @@
-package player.components;
+package classes.player.components;
 
 import interfaces.player.components.ITarget;
 
