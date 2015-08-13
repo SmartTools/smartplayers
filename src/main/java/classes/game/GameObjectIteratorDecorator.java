@@ -20,6 +20,7 @@ public class GameObjectIteratorDecorator<T> implements IGameObjectIteratorDecora
     public GameObjectIteratorDecorator(final Iterator<IGameObject> objects, final String key) {
         this.key = key;
         this.objects = objects;
+        this.transform = (IGameObject obj) -> (T) obj.getKey(key);
     }
 
     public GameObjectIteratorDecorator(final Iterator<IGameObject> objects, final String key, final Function<IGameObject, T> transform) {

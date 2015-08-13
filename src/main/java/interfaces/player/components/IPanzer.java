@@ -1,14 +1,13 @@
 package interfaces.player.components;
 
+import interfaces.player.IOwnership;
 import interfaces.player.control.IRemoteControl;
 
 /**
- * Created by byzilio on 20.07.15.
- * Интерфейс управляемого игроком танка
+ * Panzer interface. Contains itself as target and remote control of itself.
  */
 public interface IPanzer {
-
     ITarget getTarget();
     IRemoteControl getControl();
-
+    IOwnership getOwnership();
 }

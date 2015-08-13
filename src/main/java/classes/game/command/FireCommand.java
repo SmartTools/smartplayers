@@ -8,13 +8,18 @@ import interfaces.player.components.ITarget;
  */
 public class FireCommand implements ICommand {
 
-    ITarget obj;
+    private ITarget obj;
 
     public FireCommand(final ITarget obj) {
         this.obj = obj;
     }
 
+    @Override
     public ITarget action() {
         return null;
+    }
+
+    public ITarget getObj() {
+        return obj;
     }
 }

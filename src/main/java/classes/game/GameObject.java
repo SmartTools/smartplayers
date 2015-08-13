@@ -9,7 +9,7 @@ import java.util.Map;
  */
 public class GameObject implements IGameObject {
 
-    Map<String, Object> components;
+    private Map<String, Object> components;
 
     @Override
     public boolean has(final String key) {
@@ -23,5 +23,4 @@ public class GameObject implements IGameObject {
     public Object getKey(final String key) {
         return components.get(key);
     }
-
 }

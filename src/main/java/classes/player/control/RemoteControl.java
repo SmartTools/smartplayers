@@ -1,9 +1,6 @@
 package classes.player.control;
 
-import classes.game.command.FireCommand;
-import classes.game.command.MoveCommand;
-import classes.game.command.RotateLeftCommand;
-import classes.game.command.RotateRightCommand;
+import classes.game.command.*;
 import interfaces.game.ICommand;
 import interfaces.game.ICommandSource;
 import interfaces.player.control.IRemoteControl;
@@ -14,8 +11,8 @@ import interfaces.player.components.ITarget;
  */
 public class RemoteControl implements IRemoteControl, ICommandSource {
 
-    ICommand command;
-    ITarget target;
+    private ICommand command;
+    private ITarget target;
 
     @Override
     public void move() {
@@ -47,7 +44,7 @@ public class RemoteControl implements IRemoteControl, ICommandSource {
 
     @Override
     public void stop() {
-        command = null;
+        command = new StopCommand(this.target);
     }
 
     @Override

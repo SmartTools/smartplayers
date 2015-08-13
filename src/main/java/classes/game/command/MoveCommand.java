@@ -4,18 +4,22 @@ import interfaces.game.ICommand;
 import interfaces.player.components.ITarget;
 
 /**
- * Created by kkp on 07.08.15.
+ * Move command class
  */
 public class MoveCommand implements ICommand {
 
-    ITarget obj;
+    private ITarget obj;
 
-    public MoveCommand(ITarget obj) {
+    public MoveCommand(final ITarget obj) {
         this.obj = obj;
     }
 
+    @Override
     public ITarget action() {
-
         return  null;
+    }
+
+    public ITarget getObj() {
+        return obj;
     }
 }

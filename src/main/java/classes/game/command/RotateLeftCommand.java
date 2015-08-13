@@ -4,17 +4,22 @@ import interfaces.game.ICommand;
 import interfaces.player.components.ITarget;
 
 /**
- * Created by kkp on 07.08.15.
+ * Rotate left command class
  */
 public class RotateLeftCommand implements ICommand {
 
-    ITarget obj;
+    private ITarget obj;
 
-    public RotateLeftCommand(ITarget obj) {
+    public RotateLeftCommand(final ITarget obj) {
         this.obj = obj;
     }
 
+    @Override
     public ITarget action() {
         return null;
+    }
+
+    public ITarget getObj() {
+        return obj;
     }
 }

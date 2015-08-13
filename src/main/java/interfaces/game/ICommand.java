@@ -3,8 +3,7 @@ package interfaces.game;
 import interfaces.player.components.ITarget;
 
 /**
- * Created by kkp on 27.07.15.
- * Интерфейс команды , изменяющей состояние
+ * Commant interface
  */
 public interface ICommand {
     ITarget action();

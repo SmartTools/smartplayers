@@ -4,22 +4,18 @@ import interfaces.game.ICommand;
 import interfaces.player.components.ITarget;
 
 /**
- * Rotate right command class
+ * Stop command
  */
-public class RotateRightCommand implements ICommand {
+public class StopCommand implements ICommand {
 
     private ITarget obj;
 
-    public RotateRightCommand(final ITarget obj) {
-        this.obj = obj;
+    public StopCommand(final ITarget target) {
+        this.obj = target;
     }
 
     @Override
     public ITarget action() {
-        return null;
-    }
-
-    public ITarget getObj() {
         return obj;
     }
 }

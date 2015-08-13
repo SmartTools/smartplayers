@@ -1,7 +1,7 @@
 package interfaces.player.control;
 
 /**
- *Интрефейс , создающий команды для изменения состояния
+ * Interface for remote control
  */
 public interface IRemoteControl {
     void move();
