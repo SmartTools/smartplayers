@@ -6,8 +6,11 @@ import classes.game.command.RotateLeftCommand;
 import classes.game.command.RotateRightCommand;
 import interfaces.game.ICommand;
 import interfaces.game.ICommandSource;
+import interfaces.game.IGameObject;
 import interfaces.player.control.IRemoteControl;
 import interfaces.player.components.ITarget;
+
+import java.util.function.Function;
 
 /**
  * RemoteControl class. Uses for player's interface and for making game steps in IGameField implementation.
@@ -16,7 +19,7 @@ public class RemoteControl implements IRemoteControl, ICommandSource {
 
     ICommand command;
     ITarget target;
-
+    Function<IGameObject , IGameObject> creator;
     @Override
     public void move() {
         if(command == null){
@@ -41,7 +44,7 @@ public class RemoteControl implements IRemoteControl, ICommandSource {
     @Override
     public void fire() {
         if(command == null) {
-            command = new FireCommand(this.target);
+            command = new FireCommand(this.target , creator);
         }
     }
 

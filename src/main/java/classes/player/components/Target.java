@@ -4,6 +4,8 @@ import classes.player.components.geometry.Point;
 import classes.player.components.geometry.Shape;
 import interfaces.player.components.ITarget;
 
+import java.util.Properties;
+
 
 /**
  * Created by kkp on 07.08.15.
@@ -14,10 +16,18 @@ public class Target implements ITarget {
     Point direction;
     int speed;
     Shape shape;
-    public static final int PanzerSize = 5;
-    public static final int PanzerSpeed = 5;
-    public static final int BulletSize = 1;
-    public static final int BulletSpeed = 10;
+    public static int PanzerSize;
+    public static int PanzerSpeed;
+    public static int BulletSize;
+    public static int BulletSpeed ;
+
+    public Target() throws Exception {
+        GetPropertyValues p = new GetPropertyValues();
+        PanzerSize = (int) p.getValue("PanzerSize");
+        PanzerSpeed = (int) p.getValue("PanzerSpeed");
+        BulletSize = (int) p.getValue("BulletSize");
+        BulletSpeed = (int) p.getValue("BulletSpeed");
+    }
 
     public Target(final Point direction, final Point location, final Shape shape, int speed) {
         this.direction = direction;
