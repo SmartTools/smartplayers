@@ -26,6 +26,13 @@ public class Strategy implements IStrategy {
 
         for (IPanzer panzer : panzers) {
             boolean hasAim = false;
+            System.out.print(
+                    "\nPanzer x " + panzer.getTarget().getLocation().getX() +
+                            " y " + panzer.getTarget().getLocation().getY() +
+                            "look to x" + panzer.getTarget().getDirection().getX() +
+                            " y " + panzer.getTarget().getLocation().getY()
+
+            );
             for (ITarget enemy : enemys) {
                 if (onFireLine(panzer.getTarget(), enemy)) {
                     hasAim = true;
