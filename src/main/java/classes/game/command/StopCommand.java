@@ -1,6 +1,7 @@
 package classes.game.command;
 
 import interfaces.game.ICommand;
+import interfaces.game.IGameObject;
 import interfaces.player.components.ITarget;
 
 /**
@@ -8,14 +9,14 @@ import interfaces.player.components.ITarget;
  */
 public class StopCommand implements ICommand {
 
-    private ITarget obj;
+    private IGameObject obj;
 
-    public StopCommand(final ITarget target) {
-        this.obj = target;
+    public StopCommand(final IGameObject gameObject) {
+        this.obj = obj;
     }
 
     @Override
-    public ITarget action() {
-        return obj;
+    public void action() {
+        return;
     }
 }

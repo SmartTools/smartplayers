@@ -1,6 +1,8 @@
 package classes.game.command;
 
+import classes.player.components.geometry.Vector;
 import interfaces.game.ICommand;
+import interfaces.game.IGameObject;
 import interfaces.player.components.ITarget;
 
 /**
@@ -8,18 +10,18 @@ import interfaces.player.components.ITarget;
  */
 public class RotateRightCommand implements ICommand {
 
-    private ITarget obj;
+    private IGameObject obj;
+    private final static Integer ANGLE = 90;
 
-    public RotateRightCommand(final ITarget obj) {
+    public RotateRightCommand(final IGameObject obj) {
         this.obj = obj;
     }
 
     @Override
-    public ITarget action() {
-        return null;
-    }
-
-    public ITarget getObj() {
-        return obj;
+    public void action() {
+        ITarget target = (ITarget) obj.getKey("target");
+        Vector<Double> direction = target.getDirection();
+        direction.setX(Math.cos(ANGLE) * direction.getX() + Math.sin(ANGLE) * direction.getY());
+        direction.setY(- Math.sin(ANGLE) * direction.getX() + Math.cos(ANGLE) * direction.getX());
     }
 }

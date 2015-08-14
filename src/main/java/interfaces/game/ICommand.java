@@ -3,8 +3,8 @@ package interfaces.game;
 import interfaces.player.components.ITarget;
 
 /**
- * Commant interface
+ * Command interface
  */
 public interface ICommand {
-    ITarget action();
+    void action();
 }

@@ -1,25 +1,26 @@
 package classes.game.command;
 
 import interfaces.game.ICommand;
-import interfaces.player.components.ITarget;
+import interfaces.game.IGameObject;
+
+import java.util.function.Supplier;
 
 /**
  * Fire command.
  */
 public class FireCommand implements ICommand {
 
-    private ITarget obj;
+    private IGameObject obj;
+    Supplier<IGameObject> creator;
 
-    public FireCommand(final ITarget obj) {
+    public FireCommand(final IGameObject obj, final Supplier<IGameObject> creator) {
         this.obj = obj;
+        this.creator = creator;
     }
 
     @Override
-    public ITarget action() {
-        return null;
-    }
-
-    public ITarget getObj() {
-        return obj;
+    public void action() {
+        IGameObject bullet = creator.get();
+        // set up properties
     }
 }

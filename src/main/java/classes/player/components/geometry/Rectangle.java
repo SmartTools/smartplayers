@@ -5,21 +5,21 @@ package classes.player.components.geometry;
  */
 public class Rectangle extends Shape {
 
-    private Point leftTop;
-    private int height;
-    private int width;
+    private Point<Integer> leftTop;
+    private Integer height;
+    private Integer width;
 
-    public Rectangle(Point leftTop, int height, int width) {
+    public Rectangle(final Point<Integer> leftTop, final Integer height, final Integer width) {
         this.leftTop = leftTop;
         this.height = height;
         this.width = width;
     }
 
-    public Point getLeftTop() {
+    public Point<Integer> getLeftTop() {
         return leftTop;
     }
 
-    public void setLeftTop(final Point leftTop) {
+    public void setLeftTop(final Point<Integer> leftTop) {
         this.leftTop = leftTop;
     }
 
@@ -27,7 +27,7 @@ public class Rectangle extends Shape {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(final Integer height) {
         this.height = height;
     }
 
@@ -35,7 +35,12 @@ public class Rectangle extends Shape {
         return width;
     }
 
-    public void setWidth(int width) {
+    public void setWidth(final Integer width) {
         this.width = width;
+    }
+
+    @Override
+    public void setCenter(final Point point) {
+        leftTop = point;
     }
 }

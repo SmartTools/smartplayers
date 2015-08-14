@@ -9,7 +9,7 @@ import classes.game.GameObject;
 /**
  * Panzer's class
  */
-public class Panzer extends GameObject implements IPanzer {
+public class Panzer {
 
     private IRemoteControl control;
     private ITarget target;
@@ -22,17 +22,14 @@ public class Panzer extends GameObject implements IPanzer {
     }
 
 
-    @Override
     public ITarget getTarget() {
         return target;
     }
 
-    @Override
     public IRemoteControl getControl() {
         return control;
     }
 
-    @Override
     public IOwnership getOwnership() {
         return ownership;
     }

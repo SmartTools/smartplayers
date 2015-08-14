@@ -5,10 +5,10 @@ package classes.player.components.geometry;
  */
 public class Circle extends Shape {
 
-    private Point center;
-    private int radius;
+    private Point<Integer> center;
+    private Integer radius;
 
-    public Circle(final Point center, int radius) {
+    public Circle(final Point<Integer> center, final Integer radius) {
         this.center = center;
         this.radius = radius;
     }
@@ -17,7 +17,7 @@ public class Circle extends Shape {
         this.center = center;
     }
 
-    public void setRadius(int radius) {
+    public void setRadius(final Integer radius) {
         this.radius = radius;
     }
 }

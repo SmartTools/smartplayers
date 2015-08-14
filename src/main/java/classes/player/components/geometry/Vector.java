@@ -1,14 +1,13 @@
 package classes.player.components.geometry;
 
 /**
- * Plane point
+ * Vector class
  */
-public class Point<T extends Number> {
-
+public class Vector<T extends Number> {
     private T x;
     private T y;
 
-    public Point(final T x, final T y) {
+    public Vector(final T x, final T y) {
         this.x = x;
         this.y = y;
     }
@@ -29,4 +28,7 @@ public class Point<T extends Number> {
         this.y = y;
     }
 
+    public Double length() {
+        return Math.sqrt((x.doubleValue() * x.doubleValue()) + (y.doubleValue() * y.doubleValue()));
+    }
 }

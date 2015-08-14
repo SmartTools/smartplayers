@@ -1,6 +1,9 @@
 package classes.game.command;
 
+import classes.player.components.geometry.Point;
+import classes.player.components.geometry.Vector;
 import interfaces.game.ICommand;
+import interfaces.game.IGameObject;
 import interfaces.player.components.ITarget;
 
 /**
@@ -8,18 +11,19 @@ import interfaces.player.components.ITarget;
  */
 public class MoveCommand implements ICommand {
 
-    private ITarget obj;
+    private IGameObject obj;
 
-    public MoveCommand(final ITarget obj) {
+    public MoveCommand(final IGameObject obj) {
         this.obj = obj;
     }
 
     @Override
-    public ITarget action() {
-        return  null;
-    }
-
-    public ITarget getObj() {
-        return obj;
+    public void action() {
+        ITarget target = (ITarget) obj.getKey("target");
+        Vector<Double> direction = target.getDirection();
+        Point<Integer> location = target.getLocation();
+        Integer speed = target.getSpeed();
+        location.setX(location.getX() + (int)(direction.getX() * (double) speed));
+        location.setY(location.getY() + (int) (direction.getY() * (double) speed));
     }
 }
