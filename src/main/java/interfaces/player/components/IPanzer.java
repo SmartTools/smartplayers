@@ -10,4 +10,5 @@ public interface IPanzer {
     ITarget getTarget();
     IRemoteControl getControl();
     IOwnership getOwnership();
+    IHealth getHealth();
 }

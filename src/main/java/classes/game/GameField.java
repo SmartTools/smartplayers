@@ -3,6 +3,7 @@ package classes.game;
 import interfaces.game.*;
 import interfaces.player.IOwnership;
 import interfaces.player.IPlayer;
+import interfaces.player.components.IHealth;
 import interfaces.player.components.IPanzer;
 import interfaces.player.components.ITarget;
 import interfaces.player.control.IRemoteControl;
@@ -36,7 +37,8 @@ public class GameField implements IGameField {
                             ITarget target = (ITarget) obj.getKey("target");
                             IRemoteControl remoteControl = (IRemoteControl) obj.getKey("remoteControl");
                             IOwnership ownership = (IOwnership) obj.getKey("ownership");
-                            Panzer panzer = new Panzer(remoteControl, target, ownership);
+                            IHealth health = (IHealth) obj.getKey("health");
+                            Panzer panzer = new Panzer(remoteControl, target, ownership, health);
                             return panzer;
                         },
                         (IGameObject obj) -> {
