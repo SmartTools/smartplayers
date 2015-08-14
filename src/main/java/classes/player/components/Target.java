@@ -2,6 +2,7 @@ package classes.player.components;
 
 import classes.player.components.geometry.Point;
 import classes.player.components.geometry.Shape;
+import classes.player.components.geometry.Vector;
 import interfaces.player.components.ITarget;
 
 
@@ -11,7 +12,7 @@ import interfaces.player.components.ITarget;
 public class Target implements ITarget {
 
     private Point location;
-    private Point direction;
+    private Vector direction;
     private int speed;
     private Shape shape;
     //TODO: Out to .properties file
@@ -19,8 +20,10 @@ public class Target implements ITarget {
     public static final int PanzerSpeed = 5;
     public static final int BulletSize = 1;
     public static final int BulletSpeed = 10;
+    public static final int PanzerRotateSpeed = 10;
 
-    public Target(final Point direction, final Point location, final Shape shape, int speed) {
+
+    public Target(final Vector direction, final Point location, final Shape shape, int speed) {
         this.direction = direction;
         this.location = location;
         this.shape = shape;
@@ -34,7 +37,7 @@ public class Target implements ITarget {
     }
 
     @Override
-    public Point getDirection() {
+    public Vector getDirection() {
         return direction;
     }
 

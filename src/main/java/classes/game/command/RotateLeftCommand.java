@@ -1,5 +1,6 @@
 package classes.game.command;
 
+import classes.player.components.Target;
 import interfaces.game.ICommand;
 import interfaces.player.components.ITarget;
 
@@ -16,7 +17,13 @@ public class RotateLeftCommand implements ICommand {
 
     @Override
     public ITarget action() {
-        return null;
+        Target target = new Target(
+            obj.getDirection().rotate(-Target.PanzerRotateSpeed),
+            obj.getLocation(),
+            obj.getShape(),
+            0
+    );
+        return obj;
     }
 
     public ITarget getObj() {

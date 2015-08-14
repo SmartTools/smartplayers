@@ -2,6 +2,7 @@ package interfaces.player.components;
 
 import classes.player.components.geometry.Point;
 import classes.player.components.geometry.Shape;
+import classes.player.components.geometry.Vector;
 
 /**
  * Game targets
@@ -9,7 +10,7 @@ import classes.player.components.geometry.Shape;
 public interface ITarget {
 
     Point getLocation();
-    Point getDirection();
+    Vector getDirection();
     int getSpeed();
     Shape getShape();
 
