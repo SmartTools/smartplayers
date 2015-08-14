@@ -1,5 +1,7 @@
 package classes.game.command;
 
+import classes.player.components.Target;
+import classes.player.components.geometry.Point;
 import interfaces.game.ICommand;
 import interfaces.player.components.ITarget;
 
@@ -16,6 +18,12 @@ public class StopCommand implements ICommand {
 
     @Override
     public ITarget action() {
-        return obj;
+        ITarget target = new Target(
+            obj.getDirection(),
+            obj.getLocation(),
+            obj.getShape(),
+            0
+        );
+        return  obj;
     }
 }
