@@ -9,6 +9,7 @@ import interfaces.player.control.IRemoteControl;
 import classes.player.components.Panzer;
 import classes.player.components.Radar;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -26,7 +27,9 @@ public class GameField implements IGameField {
 
         while(!hasWinner()) {
             for (IPlayer player : players) {
-                Iterator<IPanzer> panzers = new GameObjectIteratorDecorator<Panzer>(
+                IGameState gameState = new GameState(
+                    new Radar(new GameObjectIteratorDecorator<ITarget>(objects, "target")),
+                    new GameObjectIteratorDecorator<Panzer>(
                         objects,
                         "remoteControl",
                         (IGameObject obj) -> {
@@ -35,20 +38,13 @@ public class GameField implements IGameField {
                             IOwnership ownership = (IOwnership) obj.getKey("ownership");
                             Panzer panzer = new Panzer(remoteControl, target, ownership);
                             return panzer;
+                        },
+                        (IGameObject obj) -> {
+                            IOwnership ownership = (IOwnership) obj.getKey("ownership");
+                            return ownership.getOwner().equals(player.getName());
                         }
+                    )
                 );
-                List<IPanzer> playerPanzers = new LinkedList<>();
-                while (panzers.hasNext()) {
-                    IPanzer panzer = panzers.next();
-                    if(panzer.getOwnership().getOwner().equals(player.getName())) {
-                        playerPanzers.add(panzer);
-                    }
-                }
-                IGameState gameState = new GameState(
-                    new Radar(new GameObjectIteratorDecorator<ITarget>(objects, "target")),
-                    playerPanzers.iterator()
-                );
-
                 player.getStrategy().step(gameState);
 
                 GameObjectIteratorDecorator<ICommandSource> commands =
