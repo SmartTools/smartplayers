@@ -23,10 +23,10 @@ public class Target implements ITarget {
 
     public Target() throws Exception {
         GetPropertyValues p = new GetPropertyValues();
-        PanzerSize = (int) p.getValue("PanzerSize");
-        PanzerSpeed = (int) p.getValue("PanzerSpeed");
-        BulletSize = (int) p.getValue("BulletSize");
-        BulletSpeed = (int) p.getValue("BulletSpeed");
+        PanzerSize = Integer.parseInt(p.getValue("PanzerSize"));
+        PanzerSpeed = Integer.parseInt(p.getValue("PanzerSpeed"));
+        BulletSize = Integer.parseInt(p.getValue("BulletSize"));
+        BulletSpeed = Integer.parseInt(p.getValue("BulletSpeed"));
     }
 
     public Target(final Point direction, final Point location, final Shape shape, int speed) {

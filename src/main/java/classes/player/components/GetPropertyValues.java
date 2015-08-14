@@ -12,7 +12,7 @@ import java.util.Properties;
 public final class GetPropertyValues {
     InputStream inputStream;
 
-    public Object getValue(String name) throws Exception {
+    public String getValue(String name) throws Exception {
 
         try {
             Properties prop = new Properties();
