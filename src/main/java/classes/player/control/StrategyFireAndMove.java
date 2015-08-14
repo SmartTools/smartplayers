@@ -9,12 +9,11 @@ import org.apache.commons.collections.IteratorUtils;
 import java.util.List;
 
 /**
- * Created by kkp on 13.08.15.
+ * Created by kkp on 14.08.15.
  */
-public class Strategy implements IStrategy {
+public class StrategyFireAndMove implements IStrategy {
     @Override
     public void step(IGameState state) {
-
         List<IPanzer> panzers = IteratorUtils.toList(state.getControl());
         List<ITarget> enemys = IteratorUtils.toList(state.getRadar().getTargets());
 
@@ -27,9 +26,9 @@ public class Strategy implements IStrategy {
         for (IPanzer panzer : panzers) {
             boolean hasAim = false;
             System.out.print(
-                    "\nPanzer x " + panzer.getTarget().getLocation().getX() +
+                    "\nPanzer in x " + panzer.getTarget().getLocation().getX() +
                             " y " + panzer.getTarget().getLocation().getY() +
-                            "look to x" + panzer.getTarget().getDirection().getX() +
+                     "and   look to x" + panzer.getTarget().getDirection().getX() +
                             " y " + panzer.getTarget().getLocation().getY()
 
             );
@@ -42,11 +41,12 @@ public class Strategy implements IStrategy {
             }
             if (hasAim) {
                 panzer.getControl().fire();
-            }
-            else {
-                panzer.getControl().rotateRight();
+            } else {
+                for (ITarget enemy : enemys) {
             }
         }
+
+
     }
 
     private boolean onFireLine(ITarget gunner,ITarget aim) {
@@ -67,5 +67,4 @@ public class Strategy implements IStrategy {
     private double range(double x, double y, double ax, double ay){
         return Math.sqrt( Math.pow((x - ax) , 2) + Math.pow((y - ay) , 2));
     }
-
 }
