@@ -1,5 +1,7 @@
 package classes.game.command;
 
+import classes.player.components.Target;
+import classes.player.components.geometry.Point;
 import interfaces.game.ICommand;
 import interfaces.player.components.ITarget;
 
@@ -16,7 +18,14 @@ public class MoveCommand implements ICommand {
 
     @Override
     public ITarget action() {
-        return  null;
+        ITarget target = new Target(
+            obj.getDirection(),
+            new Point(obj.getLocation().getX() + obj.getDirection().getX() * Target.PanzerSpeed ,
+                    obj.getLocation().getY() + obj.getDirection().getY() * Target.PanzerSpeed),
+                obj.getShape(),
+                Target.PanzerSpeed
+        );
+        return  obj;
     }
 
     public ITarget getObj() {
