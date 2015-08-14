@@ -3,6 +3,7 @@ package classes.game;
 import interfaces.game.*;
 import interfaces.player.IOwnership;
 import interfaces.player.IPlayer;
+import interfaces.player.components.IHealth;
 import interfaces.player.components.IPanzer;
 import interfaces.player.components.ITarget;
 import interfaces.player.control.IRemoteControl;
@@ -36,7 +37,8 @@ public class GameField implements IGameField {
                             ITarget target = (ITarget) obj.getKey("target");
                             IRemoteControl remoteControl = (IRemoteControl) obj.getKey("remoteControl");
                             IOwnership ownership = (IOwnership) obj.getKey("ownership");
-                            Panzer panzer = new Panzer(remoteControl, target, ownership);
+                            IHealth health = (IHealth) obj.getKey("health");
+                            Panzer panzer = new Panzer(remoteControl, target, ownership, health);
                             return panzer;
                         },
                         (IGameObject obj) -> {
@@ -58,8 +60,27 @@ public class GameField implements IGameField {
 
     }
 
-    private boolean hasWinner() {
-        return false;
+    private Boolean hasWinner() {
+        Iterator<IOwnership> units = new GameObjectIteratorDecorator<>(
+                objects,
+                "remoteControl",
+                (IGameObject obj) -> (IOwnership) obj.getKey("ownership"),
+                (IGameObject obj) -> {
+                    IHealth health = (IHealth) obj.getKey("health");
+                    return health.getValue() > 0;
+                }
+        );
+        if (!units.hasNext()) {
+            return Boolean.TRUE;
+        }
+        String player = units.next().getOwner();
+        while (units.hasNext()) {
+            IOwnership unit = units.next();
+            if (!player.equals(unit.getOwner())) {
+                return Boolean.FALSE;
+            }
+        }
+        return Boolean.TRUE;
     }
 
     public Iterable<IPlayer> getPlayers() {
