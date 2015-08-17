@@ -9,10 +9,10 @@ import interfaces.player.components.ITarget;
  */
 public class StopCommand implements ICommand {
 
-    private IGameObject obj;
+    private ITarget target;
 
-    public StopCommand(final IGameObject gameObject) {
-        this.obj = obj;
+    public StopCommand(final ITarget target) {
+        this.target = target;
     }
 
     @Override

@@ -5,12 +5,11 @@ import interfaces.player.components.IHealth;
 import interfaces.player.components.IPanzer;
 import interfaces.player.control.IRemoteControl;
 import interfaces.player.components.ITarget;
-import classes.game.GameObject;
 
 /**
  * Panzer's class
  */
-public class Panzer {
+public class Panzer implements IPanzer {
 
     private IRemoteControl control;
     private ITarget target;
@@ -37,7 +36,6 @@ public class Panzer {
         return ownership;
     }
 
-    @Override
     public IHealth getHealth() {
         return health;
     }

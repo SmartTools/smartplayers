@@ -29,4 +29,11 @@ public class Point<T extends Number> {
         this.y = y;
     }
 
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }

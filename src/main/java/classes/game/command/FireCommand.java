@@ -2,6 +2,7 @@ package classes.game.command;
 
 import interfaces.game.ICommand;
 import interfaces.game.IGameObject;
+import interfaces.player.components.ITarget;
 
 import java.util.function.Supplier;
 
@@ -10,17 +11,17 @@ import java.util.function.Supplier;
  */
 public class FireCommand implements ICommand {
 
-    private IGameObject obj;
-    Supplier<IGameObject> creator;
+    private ITarget target;
+    private Supplier<IGameObject> creator;
 
-    public FireCommand(final IGameObject obj, final Supplier<IGameObject> creator) {
-        this.obj = obj;
+    public FireCommand(final ITarget target, final Supplier<IGameObject> creator) {
+        this.target = target;
         this.creator = creator;
     }
 
     @Override
     public void action() {
-        IGameObject bullet = creator.get();
+        IGameObject bullet = this.creator.get();
         // set up properties
     }
 }
