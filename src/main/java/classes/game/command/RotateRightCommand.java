@@ -2,26 +2,31 @@ package classes.game.command;
 
 import classes.player.components.geometry.Vector;
 import interfaces.game.ICommand;
-import interfaces.game.IGameObject;
 import interfaces.player.components.ITarget;
+import utils.PropertyUtils;
+
+import java.io.IOException;
 
 /**
  * Rotate right command class
  */
 public class RotateRightCommand implements ICommand {
 
-    private IGameObject obj;
-    private final static Integer ANGLE = 90;
+    private ITarget target;
+    private Integer angle;
+    private final static String ANGLE_PROPERTY = "angle.right-rotate";
 
-    public RotateRightCommand(final IGameObject obj) {
-        this.obj = obj;
+    public RotateRightCommand(final ITarget obj) throws IOException {
+        PropertyUtils propertyUtils = new PropertyUtils();
+        this.angle = propertyUtils.getIntValue(ANGLE_PROPERTY);
+        this.target = obj;
     }
 
     @Override
     public void action() {
-        ITarget target = (ITarget) obj.getKey("target");
-        Vector<Double> direction = target.getDirection();
-        direction.setX(Math.cos(ANGLE) * direction.getX() + Math.sin(ANGLE) * direction.getY());
-        direction.setY(- Math.sin(ANGLE) * direction.getX() + Math.cos(ANGLE) * direction.getX());
+        Vector<Double> direction = this.target.getDirection();
+        Vector<Double> oldDirection = new Vector<>(direction.getX().doubleValue(), direction.getY().doubleValue());
+        direction.setX(Math.cos(this.angle) * oldDirection.getX() + Math.sin(this.angle) * oldDirection.getY());
+        direction.setY(- Math.sin(this.angle) * oldDirection.getX() + Math.cos(this.angle) * oldDirection.getX());
     }
 }

@@ -3,7 +3,6 @@ package classes.game.command;
 import classes.player.components.geometry.Point;
 import classes.player.components.geometry.Vector;
 import interfaces.game.ICommand;
-import interfaces.game.IGameObject;
 import interfaces.player.components.ITarget;
 
 /**
@@ -11,19 +10,20 @@ import interfaces.player.components.ITarget;
  */
 public class MoveCommand implements ICommand {
 
-    private IGameObject obj;
+    private ITarget target;
 
-    public MoveCommand(final IGameObject obj) {
-        this.obj = obj;
+    public MoveCommand(final ITarget obj) {
+        this.target = obj;
     }
 
     @Override
     public void action() {
-        ITarget target = (ITarget) obj.getKey("target");
-        Vector<Double> direction = target.getDirection();
-        Point<Integer> location = target.getLocation();
-        Integer speed = target.getSpeed();
+        Vector<Double> direction = this.target.getDirection();
+        Point<Integer> location = this.target.getLocation();
+        Integer speed = this.target.getSpeed();
         location.setX(location.getX() + (int)(direction.getX() * (double) speed));
         location.setY(location.getY() + (int) (direction.getY() * (double) speed));
+        //TODO: delete this log
+        System.out.println(target.getLocation().toString());
     }
 }

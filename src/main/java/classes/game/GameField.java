@@ -21,9 +21,9 @@ import java.util.List;
 public class GameField implements IGameField {
 
     private Iterable<IPlayer> players;
-    private Iterator<IGameObject> objects;
+    private Iterable<IGameObject> objects;
 
-    public GameField(final Iterable<IPlayer> players, final Iterator<IGameObject> objects) {
+    public GameField(final Iterable<IPlayer> players, final Iterable<IGameObject> objects) {
         this.players = players;
         this.objects = objects;
     }
@@ -34,16 +34,16 @@ public class GameField implements IGameField {
         while(!hasWinner()) {
             for (IPlayer player : players) {
                 IGameState gameState = new GameState(
-                    new Radar(new GameObjectIteratorDecorator<ITarget>(objects, "target")),
-                    new GameObjectIteratorDecorator<Panzer>(
-                        objects,
+                    new Radar(new GameObjectIteratorDecorator<ITarget>(objects.iterator(), "target")),
+                    new GameObjectIteratorDecorator<IPanzer>(
+                        objects.iterator(),
                         "remoteControl",
                         (IGameObject obj) -> {
                             ITarget target = (ITarget) obj.getKey("target");
                             IRemoteControl remoteControl = (IRemoteControl) obj.getKey("remoteControl");
                             IOwnership ownership = (IOwnership) obj.getKey("ownership");
                             IHealth health = (IHealth) obj.getKey("health");
-                            Panzer panzer = new Panzer(remoteControl, target, ownership, health);
+                            IPanzer panzer = new Panzer(remoteControl, target, ownership, health);
                             return panzer;
                         },
                         (IGameObject obj) -> {
@@ -53,13 +53,12 @@ public class GameField implements IGameField {
                     )
                 );
                 player.getStrategy().step(gameState);
+            }
+            GameObjectIteratorDecorator<ICommandSource> commands =
+                new GameObjectIteratorDecorator<ICommandSource>(objects.iterator(), "command");
 
-                GameObjectIteratorDecorator<ICommandSource> commands =
-                    new GameObjectIteratorDecorator<ICommandSource>(objects, "command");
-
-                while (commands.hasNext()) {
-                    commands.next().command().action();
-                }
+            while (commands.hasNext()) {
+                commands.next().command().action();
             }
         }
 
@@ -67,7 +66,7 @@ public class GameField implements IGameField {
 
     private Boolean hasWinner() {
         Iterator<IOwnership> units = new GameObjectIteratorDecorator<>(
-                objects,
+                objects.iterator(),
                 "remoteControl",
                 (IGameObject obj) -> (IOwnership) obj.getKey("ownership"),
                 (IGameObject obj) -> {
@@ -86,13 +85,5 @@ public class GameField implements IGameField {
             }
         }
         return Boolean.TRUE;
-    }
-
-    public Iterable<IPlayer> getPlayers() {
-        return players;
-    }
-
-    public Iterator<IGameObject> getObjects() {
-        return objects;
     }
 }

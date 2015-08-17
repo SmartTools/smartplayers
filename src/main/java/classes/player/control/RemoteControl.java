@@ -7,7 +7,7 @@ import interfaces.game.IGameObject;
 import interfaces.player.control.IRemoteControl;
 import interfaces.player.components.ITarget;
 
-import java.util.function.Function;
+import java.io.IOException;
 import java.util.function.Supplier;
 
 /**
@@ -16,45 +16,55 @@ import java.util.function.Supplier;
 public class RemoteControl implements IRemoteControl, ICommandSource {
 
     private ICommand command;
-    private IGameObject gameObject;
+    private ITarget target;
     private Supplier<IGameObject> creator;
 
-    public RemoteControl(final IGameObject gameObject, Supplier<IGameObject> creator) {
-        this.gameObject = gameObject;
+    public RemoteControl(final ITarget target, final Supplier<IGameObject> creator) {
+        this.target = target;
         this.creator = creator;
     }
 
     @Override
     public void move() {
         if(command == null){
-            command = new MoveCommand(this.gameObject);
+            command = new MoveCommand(this.target);
         }
     }
 
     @Override
     public void rotateLeft() {
         if(command == null) {
-            command = new RotateLeftCommand(this.gameObject);
+            try {
+                command = new RotateLeftCommand(this.target);
+            } catch (IOException e) {
+                //TODO: to notify player
+                command = new StopCommand(this.target);
+            }
         }
     }
 
     @Override
     public void rotateRight() {
         if(command == null) {
-            command = new RotateRightCommand(this.gameObject);
+            try {
+                command = new RotateRightCommand(this.target);
+            } catch (IOException e) {
+                //TODO: to notify player
+                command = new StopCommand(this.target);
+            }
         }
     }
 
     @Override
     public void fire() {
         if(command == null) {
-            command = new FireCommand(this.gameObject, this.creator);
+            command = new FireCommand(this.target, this.creator);
         }
     }
 
     @Override
     public void stop() {
-        command = new StopCommand(this.gameObject);
+        command = new StopCommand(this.target);
     }
 
     @Override

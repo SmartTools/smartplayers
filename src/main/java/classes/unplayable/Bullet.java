@@ -13,8 +13,8 @@ public class Bullet {
     private ITarget target;
     private ICommand command;
 
-    public Bullet(final IGameObject gameObject, final ITarget target) {
-        this.command = new MoveCommand(gameObject);
+    public Bullet(final ITarget target) {
+        this.command = new MoveCommand(target);
         this.target = target;
     }
 }

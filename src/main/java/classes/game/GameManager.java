@@ -1,10 +1,19 @@
 package classes.game;
 
+import classes.player.Ownership;
+import classes.player.Player;
+import classes.player.components.Health;
+import classes.player.components.Target;
+import classes.player.components.geometry.Point;
+import classes.player.components.geometry.Rectangle;
+import classes.player.components.geometry.Shape;
+import classes.player.components.geometry.Vector;
 import classes.player.control.RemoteControl;
 import interfaces.IPropertySource;
 import interfaces.game.IGameField;
 import interfaces.game.IGameObject;
 import interfaces.player.IPlayer;
+import interfaces.player.components.ITarget;
 import interfaces.player.control.IRemoteControl;
 
 import java.util.HashMap;
@@ -23,7 +32,7 @@ public class GameManager {
     public IGameField init() {
 
         Iterable<IPlayer> players = initPlayers();
-        Iterator<IGameObject> objects = initGameObject(players);
+        Iterable<IGameObject> objects = initGameObject(players);
 
         return new GameField(players, objects);
     }
@@ -33,29 +42,37 @@ public class GameManager {
         Integer playersNum = Integer.parseInt(this.propertySource.getProperty("players.number"));
         List<IPlayer> players = new LinkedList<>();
         for (int i = 0; i < playersNum; i++) {
-            //players.add()
+            //players.add(new Player());
         }
         return players;
     }
 
-    private Iterator<IGameObject> initGameObject(final Iterable<IPlayer> players) {
+    private Iterable<IGameObject> initGameObject(final Iterable<IPlayer> players) {
 
         List<IGameObject> objects = new LinkedList<>();
         for (IPlayer player : players) {
             Integer panzersNumber = Integer.parseInt(this.propertySource.getProperty("panzers.number"));
             for (int i = 0; i < panzersNumber; i++) {
+                //TODO: fill panzer by all its components
                 Map<String, Object> panzerComponents = new HashMap<>();
-                IGameObject panzer = new GameObject(panzerComponents);
+                panzerComponents.put(
+                    "target",
+                    new Target(new Vector<Double>(1.,0.), new Point(0,0), new Rectangle(new Point(1,0),1,1), 1)
+                );
+                Integer panzerHealth = Integer.parseInt(this.propertySource.getProperty("panzer.health"));
+                panzerComponents.put("health", new Health(panzerHealth));
+                panzerComponents.put("ownership", new Ownership(player.getName()));
                 IRemoteControl remoteControl = new RemoteControl(
-                    panzer,
+                    (ITarget) panzerComponents.get("target"),
                     () -> {
                         IGameObject bullet = new GameObject(new HashMap<>());
                         objects.add(bullet);
                         return bullet;
                     }
                 );
+                objects.add(new GameObject(panzerComponents));
             }
         }
-        return objects.iterator();
+        return objects;
     }
 }

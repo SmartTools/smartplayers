@@ -17,13 +17,8 @@ public class Target implements ITarget {
     private Vector<Double> direction;
     private Integer speed;
     private Shape shape;
-    //TODO: Out to .properties file
-    public static final int PanzerSize = 5;
-    public static final int PanzerSpeed = 5;
-    public static final int BulletSize = 1;
-    public static final int BulletSpeed = 10;
 
-    public Target(final Vector<Double> direction, final Point<Integer> location, final Shape shape, int speed) {
+    public Target(final Vector<Double> direction, final Point<Integer> location, final Shape shape, final Integer speed) {
         this.direction = direction;
         this.location = location;
         this.shape = shape;
