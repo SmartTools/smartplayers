@@ -28,6 +28,11 @@ public class GameField implements IGameField {
         this.objects = objects;
     }
 
+    public GameField(final Iterable<IPlayer> players, final Iterator<IGameObject> objects) {
+        this.players = players;
+        this.objects = objects;
+    }
+
     @Override
     public void update() {
 
