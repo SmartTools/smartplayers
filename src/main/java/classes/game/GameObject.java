@@ -11,6 +11,10 @@ public class GameObject implements IGameObject {
 
     private Map<String, Object> components;
 
+    public GameObject(final Map<String, Object> components) {
+        this.components = components;
+    }
+
     @Override
     public boolean has(final String key) {
         if (components.get(key) != null) {
