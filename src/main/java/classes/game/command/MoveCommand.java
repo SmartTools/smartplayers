@@ -5,12 +5,15 @@ import classes.player.components.geometry.Vector;
 import interfaces.game.ICommand;
 import interfaces.player.components.ITarget;
 
+import java.util.function.Consumer;
+
 /**
  * Move command class
  */
 public class MoveCommand implements ICommand {
 
     private ITarget target;
+//    private Consumer<ITarget> rules;
 
     public MoveCommand(final ITarget obj) {
         this.target = obj;
