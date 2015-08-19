@@ -1,9 +1,11 @@
 package interfaces.game;
 
 /**
- * Run players' strategies until someone win.
+ * Game field
  */
 public interface IGameField {
-    /** Realizes one game step */
-    void update();
+    Integer getLeftBound();
+    Integer getRightBound();
+    Integer getTopBound();
+    Integer getBottomBound();
 }

@@ -11,20 +11,16 @@ import interfaces.player.control.IRemoteControl;
 import classes.player.components.Panzer;
 import classes.player.components.Radar;
 
-import java.io.IOException;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 
-/**
- * Game field. It realizes strategy.
- */
-public class GameField implements IGameField {
+public class GamePlay implements IGamePlay {
 
     private Iterable<IPlayer> players;
     private Iterable<IGameObject> objects;
+    private IGameField gameField;
 
-    public GameField(final Iterable<IPlayer> players, final Iterable<IGameObject> objects) {
+    public GamePlay(final Iterable<IPlayer> players, final Iterable<IGameObject> objects, final IGameField gameField) {
+        this.gameField = gameField;
         this.players = players;
         this.objects = objects;
     }
