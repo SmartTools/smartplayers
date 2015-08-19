@@ -24,9 +24,20 @@ public class MoveCommand implements ICommand {
         Vector<Double> direction = this.target.getDirection();
         Point<Integer> location = this.target.getLocation();
         Integer speed = this.target.getSpeed();
-        location.setX(location.getX() + (int)(direction.getX() * (double) speed));
+
+
+        Point<Integer> startPoint = new Point<>(
+            location.getX().intValue(), location.getY().intValue()
+        );
+        Point<Integer> endPoint = new Point<>(
+            location.getX() + (int) (direction.getX() * (double) speed),
+            location.getY() + (int) (direction.getY() * (double) speed)
+        );
+
+        location.setX(location.getX() + (int) (direction.getX() * (double) speed));
         location.setY(location.getY() + (int) (direction.getY() * (double) speed));
         //TODO: delete this log
         System.out.println(target.getLocation().toString());
     }
+
 }

@@ -1,46 +1,35 @@
 package classes.player.components.geometry;
 
+import interfaces.player.components.geometry.IShape;
+
 /**
  * Rectangle
  */
-public class Rectangle extends Shape {
+public class Rectangle<T extends Number> implements IShape {
 
-    private Point<Integer> leftTop;
-    private Integer height;
-    private Integer width;
+    private Point<T> leftTop;
+    private T height;
+    private T width;
 
-    public Rectangle(final Point<Integer> leftTop, final Integer height, final Integer width) {
+    public Rectangle(
+        final Point<T> leftTop,
+        final T height,
+        final T width
+    ) {
         this.leftTop = leftTop;
         this.height = height;
         this.width = width;
     }
 
-    public Point<Integer> getLeftTop() {
+    public Point<T> getLeftTop() {
         return leftTop;
     }
 
-    public void setLeftTop(final Point<Integer> leftTop) {
-        this.leftTop = leftTop;
-    }
-
-    public int getHeight() {
+    public T getHeight() {
         return height;
     }
 
-    public void setHeight(final Integer height) {
-        this.height = height;
-    }
-
-    public int getWidth() {
+    public T getWidth() {
         return width;
-    }
-
-    public void setWidth(final Integer width) {
-        this.width = width;
-    }
-
-    @Override
-    public void setCenter(final Point point) {
-        leftTop = point;
     }
 }

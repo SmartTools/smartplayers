@@ -1,7 +1,7 @@
 package classes.player.components;
 
 import classes.player.components.geometry.Point;
-import classes.player.components.geometry.Shape;
+import interfaces.player.components.geometry.IShape;
 import classes.player.components.geometry.Vector;
 import interfaces.player.components.ITarget;
 
@@ -16,13 +16,12 @@ public class Target implements ITarget {
     /** Normal vector of target direction */
     private Vector<Double> direction;
     private Integer speed;
-    private Shape shape;
+    private IShape shape;
 
-    public Target(final Vector<Double> direction, final Point<Integer> location, final Shape shape, final Integer speed) {
+    public Target(final Vector<Double> direction, final Point<Integer> location, final IShape shape, final Integer speed) {
         this.direction = direction;
         this.location = location;
         this.shape = shape;
-        this.shape.setCenter(location);
         this.speed = speed;
     }
 
@@ -43,7 +42,7 @@ public class Target implements ITarget {
     }
 
     @Override
-    public Shape getShape() {
+    public IShape getShape() {
         return shape;
     }
 }
