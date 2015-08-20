@@ -1,6 +1,7 @@
 package classes.game;
 
 import interfaces.game.IGameField;
+import utils.IPropertySource;
 import utils.PropertyUtils;
 
 import java.io.IOException;
@@ -25,11 +26,11 @@ public class GameField implements IGameField {
     }
 
     public GameField() throws IOException {
-        PropertyUtils propertyUtils = new PropertyUtils();
-        this.leftBound = propertyUtils.getIntValue("bound.left");
-        this.rightBound = propertyUtils.getIntValue("bound.right");
-        this.topBound = propertyUtils.getIntValue("bound.top");
-        this.bottomBound = propertyUtils.getIntValue("bound.bottom");
+        IPropertySource property = new PropertyUtils();
+        this.leftBound = Integer.getInteger(property.getProperty("bound.left"));
+        this.rightBound = Integer.getInteger(property.getProperty("bound.right"));
+        this.topBound = Integer.getInteger(property.getProperty("bound.top"));
+        this.bottomBound = Integer.getInteger(property.getProperty("bound.bottom"));
     }
 
     @Override
@@ -37,7 +38,6 @@ public class GameField implements IGameField {
         return leftBound;
     }
 
-    @Override
     public Integer getRightBound() {
         return rightBound;
     }

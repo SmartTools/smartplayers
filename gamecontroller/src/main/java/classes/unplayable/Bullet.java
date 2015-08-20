@@ -9,6 +9,7 @@ import interfaces.game.IGameObject;
  */
 public class Bullet {
 
+    //TODO: check this entity
     private IGameObject obj;
     private ICommand command;
 

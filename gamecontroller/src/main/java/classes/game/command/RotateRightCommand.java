@@ -3,6 +3,8 @@ package classes.game.command;
 import game.api.component.ITarget;
 import game.api.geometry.Vector;
 import interfaces.game.ICommand;
+import game.api.component.ITarget;
+import utils.IPropertySource;
 import interfaces.game.IGameObject;
 import utils.PropertyUtils;
 
@@ -18,8 +20,8 @@ public class RotateRightCommand implements ICommand {
     private final static String ANGLE_PROPERTY = "angle.right-rotate";
 
     public RotateRightCommand(final IGameObject obj) throws IOException {
-        PropertyUtils propertyUtils = new PropertyUtils();
-        this.angle = propertyUtils.getIntValue(ANGLE_PROPERTY);
+        IPropertySource propertyUtils = new PropertyUtils();
+        this.angle = Integer.parseInt(propertyUtils.getProperty(ANGLE_PROPERTY));
         this.obj = obj;
     }
 

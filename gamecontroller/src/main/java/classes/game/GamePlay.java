@@ -42,10 +42,9 @@ public class GamePlay implements IGamePlay {
                         (IGameObject obj) -> {
                             ITarget target = (ITarget) obj.getKey("target");
                             IRemoteControl remoteControl = (IRemoteControl) obj.getKey("remoteControl");
-                            IOwnership ownership = (IOwnership) obj.getKey("ownership");
                             IHealth health = (IHealth) obj.getKey("health");
                             IPetrol petrol = (IPetrol) obj.getKey("petrol");
-                            IPanzer panzer = new Panzer(remoteControl, target, ownership, health, petrol);
+                            IPanzer panzer = new Panzer(remoteControl, target, health, petrol);
                             return panzer;
                         },
                         (IGameObject obj) -> {

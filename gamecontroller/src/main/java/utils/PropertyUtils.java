@@ -8,7 +8,7 @@ import java.util.Properties;
 /**
  * Class for working with .properties file
  */
-public class PropertyUtils {
+public class PropertyUtils implements IPropertySource {
 
     private Properties properties;
     private final static String FILE_NAME = "constants.properties";
@@ -31,16 +31,8 @@ public class PropertyUtils {
 
     }
 
-    public String getStringValue(final String property) {
-        return this.properties.getProperty(property);
+    @Override
+    public String getProperty(final String key) {
+        return this.properties.getProperty(key);
     }
-
-    public Integer getIntValue(final String property) {
-        return new Integer(this.properties.getProperty(property));
-    }
-
-    public Double getDoubleValue(final String property) {
-        return new Double(this.properties.getProperty(property));
-    }
-
 }
