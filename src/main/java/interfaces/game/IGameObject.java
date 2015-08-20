@@ -7,5 +7,6 @@ public interface IGameObject {
 
     boolean has(String key);
     Object getKey(String key);
+    Object put(String key, Object obj);
 
 }

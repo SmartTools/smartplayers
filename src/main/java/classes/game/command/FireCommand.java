@@ -11,11 +11,11 @@ import java.util.function.Supplier;
  */
 public class FireCommand implements ICommand {
 
-    private ITarget target;
+    private IGameObject obj;
     private Supplier<IGameObject> creator;
 
-    public FireCommand(final ITarget target, final Supplier<IGameObject> creator) {
-        this.target = target;
+    public FireCommand(final IGameObject obj, final Supplier<IGameObject> creator) {
+        this.obj = obj;
         this.creator = creator;
     }
 

@@ -1,6 +1,9 @@
-package classes.game.command;
+package classes.game;
 
 import interfaces.game.IGameField;
+import utils.PropertyUtils;
+
+import java.io.IOException;
 
 public class GameField implements IGameField {
 
@@ -21,23 +24,31 @@ public class GameField implements IGameField {
         this.bottomBound = bottomBound;
     }
 
+    public GameField() throws IOException {
+        PropertyUtils propertyUtils = new PropertyUtils();
+        this.leftBound = propertyUtils.getIntValue("bound.left");
+        this.rightBound = propertyUtils.getIntValue("bound.right");
+        this.topBound = propertyUtils.getIntValue("bound.top");
+        this.bottomBound = propertyUtils.getIntValue("bound.bottom");
+    }
+
     @Override
     public Integer getLeftBound() {
-        return null;
+        return leftBound;
     }
 
     @Override
     public Integer getRightBound() {
-        return null;
+        return rightBound;
     }
 
     @Override
     public Integer getTopBound() {
-        return null;
+        return topBound;
     }
 
     @Override
     public Integer getBottomBound() {
-        return null;
+        return bottomBound;
     }
 }
