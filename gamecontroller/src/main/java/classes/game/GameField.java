@@ -39,9 +39,8 @@ public class GameField implements IGameField {
                         (IGameObject obj) -> {
                             ITarget target = (ITarget) obj.getKey("target");
                             IRemoteControl remoteControl = (IRemoteControl) obj.getKey("remoteControl");
-                            IOwnership ownership = (IOwnership) obj.getKey("ownership");
                             IHealth health = (IHealth) obj.getKey("health");
-                            IPanzer panzer = new Panzer(remoteControl, target, ownership, health);
+                            IPanzer panzer = new Panzer(remoteControl, target, health);
                             return panzer;
                         },
                         (IGameObject obj) -> {
