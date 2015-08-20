@@ -1,10 +1,10 @@
 package classes.player.components;
 
-import game.api.geometry.Point;
-import game.api.geometry.Shape;
-import game.api.geometry.Vector;
-import game.api.component.ITarget;
 
+import game.api.component.ITarget;
+import game.api.geometry.IShape;
+import game.api.geometry.Point;
+import game.api.geometry.Vector;
 
 /**
  * Target on radar class
@@ -16,13 +16,12 @@ public class Target implements ITarget {
     /** Normal vector of target direction */
     private Vector<Double> direction;
     private Integer speed;
-    private Shape shape;
+    private IShape shape;
 
-    public Target(final Vector<Double> direction, final Point<Integer> location, final Shape shape, final Integer speed) {
+    public Target(final Vector<Double> direction, final Point<Integer> location, final IShape shape, final Integer speed) {
         this.direction = direction;
         this.location = location;
         this.shape = shape;
-        this.shape.setCenter(location);
         this.speed = speed;
     }
 
@@ -43,7 +42,7 @@ public class Target implements ITarget {
     }
 
     @Override
-    public Shape getShape() {
+    public IShape getShape() {
         return shape;
     }
 }

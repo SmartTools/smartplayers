@@ -27,4 +27,9 @@ public class GameObject implements IGameObject {
     public Object getKey(final String key) {
         return components.get(key);
     }
+
+    @Override
+    public Object put(final String key, final Object obj) {
+        return this.components.put(key, obj);
+    }
 }

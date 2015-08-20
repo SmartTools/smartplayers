@@ -16,18 +16,18 @@ import java.util.function.Supplier;
 public class RemoteControl implements IRemoteControl, ICommandSource {
 
     private ICommand command;
-    private ITarget target;
+    private IGameObject obj;
     private Supplier<IGameObject> creator;
 
-    public RemoteControl(final ITarget target, final Supplier<IGameObject> creator) {
-        this.target = target;
+    public RemoteControl(final IGameObject obj, final Supplier<IGameObject> creator) {
+        this.obj = obj;
         this.creator = creator;
     }
 
     @Override
     public void move() {
         if(command == null){
-            command = new MoveCommand(this.target);
+            command = new MoveCommand(this.obj);
         }
     }
 
@@ -35,10 +35,10 @@ public class RemoteControl implements IRemoteControl, ICommandSource {
     public void rotateLeft() {
         if(command == null) {
             try {
-                command = new RotateLeftCommand(this.target);
+                command = new RotateLeftCommand(this.obj);
             } catch (IOException e) {
                 //TODO: to notify player
-                command = new StopCommand(this.target);
+                command = new StopCommand(this.obj);
             }
         }
     }
@@ -47,10 +47,10 @@ public class RemoteControl implements IRemoteControl, ICommandSource {
     public void rotateRight() {
         if(command == null) {
             try {
-                command = new RotateRightCommand(this.target);
+                command = new RotateRightCommand(this.obj);
             } catch (IOException e) {
                 //TODO: to notify player
-                command = new StopCommand(this.target);
+                command = new StopCommand(this.obj);
             }
         }
     }
@@ -58,13 +58,13 @@ public class RemoteControl implements IRemoteControl, ICommandSource {
     @Override
     public void fire() {
         if(command == null) {
-            command = new FireCommand(this.target, this.creator);
+            command = new FireCommand(this.obj, this.creator);
         }
     }
 
     @Override
     public void stop() {
-        command = new StopCommand(this.target);
+        command = new StopCommand(this.obj);
     }
 
     @Override

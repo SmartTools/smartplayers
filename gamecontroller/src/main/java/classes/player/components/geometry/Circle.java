@@ -1,26 +1,30 @@
 package classes.player.components.geometry;
 
+import game.api.geometry.IShape;
 import game.api.geometry.Point;
-import game.api.geometry.Shape;
 
 /**
  * Circle
  */
-public class Circle extends Shape {
+public class Circle<T extends Number> implements IShape {
 
-    private Point<Integer> center;
+    private Point<T> center;
     private Integer radius;
 
-    public Circle(final Point<Integer> center, final Integer radius) {
+    public Circle(final Point<T> center, final Integer radius) {
         this.center = center;
         this.radius = radius;
     }
 
-    public void setCenter(final Point center) {
+    public Point<T> getCenter() {
+        return center;
+    }
+
+    public void setCenter(final Point<T> center) {
         this.center = center;
     }
 
-    public void setRadius(final Integer radius) {
-        this.radius = radius;
+    public Integer getRadius() {
+        return radius;
     }
 }

@@ -2,19 +2,19 @@ package classes.unplayable;
 
 import classes.game.command.MoveCommand;
 import interfaces.game.ICommand;
-import game.api.component.ITarget;
+import interfaces.game.IGameObject;
 
 /**
  * Panzer's bullet class
  */
 public class Bullet {
 
-    private ITarget target;
+    private IGameObject obj;
     private ICommand command;
 
-    public Bullet(final ITarget target) {
-        this.command = new MoveCommand(target);
-        this.target = target;
+    public Bullet(final IGameObject obj) {
+        this.command = new MoveCommand(obj);
+        this.obj = obj;
     }
 }
 

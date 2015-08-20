@@ -1,8 +1,9 @@
 package classes.game.command;
 
+import game.api.component.ITarget;
 import game.api.geometry.Vector;
 import interfaces.game.ICommand;
-import game.api.component.ITarget;
+import interfaces.game.IGameObject;
 import utils.PropertyUtils;
 
 import java.io.IOException;
@@ -12,19 +13,20 @@ import java.io.IOException;
  */
 public class RotateRightCommand implements ICommand {
 
-    private ITarget target;
+    private IGameObject obj;
     private Integer angle;
     private final static String ANGLE_PROPERTY = "angle.right-rotate";
 
-    public RotateRightCommand(final ITarget obj) throws IOException {
+    public RotateRightCommand(final IGameObject obj) throws IOException {
         PropertyUtils propertyUtils = new PropertyUtils();
         this.angle = propertyUtils.getIntValue(ANGLE_PROPERTY);
-        this.target = obj;
+        this.obj = obj;
     }
 
     @Override
     public void action() {
-        Vector<Double> direction = this.target.getDirection();
+        ITarget target = (ITarget) obj.getKey("target");
+        Vector<Double> direction = target.getDirection();
         Vector<Double> oldDirection = new Vector<>(direction.getX().doubleValue(), direction.getY().doubleValue());
         direction.setX(Math.cos(this.angle) * oldDirection.getX() + Math.sin(this.angle) * oldDirection.getY());
         direction.setY(- Math.sin(this.angle) * oldDirection.getX() + Math.cos(this.angle) * oldDirection.getX());

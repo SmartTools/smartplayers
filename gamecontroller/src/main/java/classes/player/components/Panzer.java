@@ -1,10 +1,11 @@
 package classes.player.components;
 
-import interfaces.player.IOwnership;
 import game.api.component.IHealth;
-import game.api.player.IPanzer;
+import game.api.component.IPetrol;
 import game.api.component.IRemoteControl;
 import game.api.component.ITarget;
+import game.api.player.IPanzer;
+import interfaces.player.IOwnership;
 
 /**
  * Panzer's class
@@ -15,12 +16,20 @@ public class Panzer implements IPanzer {
     private ITarget target;
     private IOwnership ownership;
     private IHealth health;
+    private IPetrol petrol;
 
-    public Panzer(final IRemoteControl control, final ITarget target, final IOwnership ownership, final IHealth health) {
+    public Panzer(
+        final IRemoteControl control,
+        final ITarget target,
+        final IOwnership ownership,
+        final IHealth health,
+        final IPetrol petrol
+    ) {
         this.control = control;
         this.target = target;
         this.ownership = ownership;
         this.health = health;
+        this.petrol = petrol;
     }
 
 
@@ -38,5 +47,9 @@ public class Panzer implements IPanzer {
 
     public IHealth getHealth() {
         return health;
+    }
+
+    public IPetrol getPetrol() {
+        return petrol;
     }
 }
