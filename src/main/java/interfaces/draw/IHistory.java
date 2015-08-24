@@ -12,4 +12,5 @@ public interface IHistory {
     void setConfig(URL configFile); //set game Configuratinn
     void addGameStep(IGameStep step);
     void addGameStep(final Iterator<IGameObject> objs);
+    IGameStep nextStep();
 }

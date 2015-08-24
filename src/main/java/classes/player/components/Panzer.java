@@ -1,5 +1,6 @@
 package classes.player.components;
 
+import interfaces.draw.IDrawable;
 import interfaces.player.IOwnership;
 import interfaces.player.components.IHealth;
 import interfaces.player.components.IPanzer;
@@ -10,7 +11,7 @@ import classes.game.GameObject;
 /**
  * Panzer's class
  */
-public class Panzer {
+public class Panzer implements IDrawable{
 
     private IRemoteControl control;
     private ITarget target;
@@ -37,7 +38,6 @@ public class Panzer {
         return ownership;
     }
 
-    @Override
     public IHealth getHealth() {
         return health;
     }

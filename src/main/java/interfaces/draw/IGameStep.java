@@ -9,4 +9,5 @@ import java.util.Iterator;
  */
 public interface IGameStep {
     void setGameObjects(final Iterator<IGameObject>  objs);
+    Iterator<IGameObject>   getGameObjects();
 }
